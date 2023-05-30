@@ -9,6 +9,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
         ../shared/qstd.cpp \
+        couple.cpp \
         main.cpp \
         personne.cpp
 
@@ -19,4 +20,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     ../shared/qstd.h \
+    couple.h \
     personne.h

@@ -7,11 +7,17 @@
 class Personne
 {
 public:
-    enum Membre {pere, mere, enfant};
-    enum Sexe {Masculin, Feminin};
-    Personne(QString nom,QString prenom,Sexe sexe,QString birth,Personne *pere = NULL,Personne *mere=NULL,QString death="");
-    QString toString();
-    void ajoutMembre();
+    enum Sexe { Masculin, Feminin };
+    Personne(QString nom, QString prenom, Sexe sexe, QString birth, Personne *pere = nullptr, Personne *mere = nullptr, QString death = "");
+    QString toString() const;
+    void ajouterEnfant(Personne *enfant);
+    QList<Personne*> getEnfants() const;
+    void setPere(Personne *pere);
+    Personne* getPere() const;
+    void setMere(Personne *mere);
+    Personne* getMere() const;
+    void setConjoint(Personne *conjoint);
+    Personne* getConjoint() const;
 
 private:
     QString m_prenom;
@@ -19,7 +25,10 @@ private:
     Sexe m_sexe;
     QString birth;
     QString death;
-    QList<Personne *> m_enfants;
+    QList<Personne*> m_enfants;
+    Personne *m_pere;
+    Personne *m_mere;
+    Personne *m_conjoint;
 };
 
-#endif // PERSONNE_H
+#endif
