@@ -43,11 +43,7 @@ int main(int argc, char *argv[])
 
     enfant1Dupont->ajouterFrereSoeur(enfant2Dupont);
 
-    cout << "Frères/soeurs de " << enfant1Dupont->toString().toStdString() << ":" << endl;
-    QList<Personne*> freresSoeurs1 = enfant1Dupont->getFreresSoeurs();
-    for (Personne* frereSoeur : freresSoeurs1) {
-        cout << "  - " << frereSoeur->toString().toStdString() <<"\n"<< endl;
-    }
+    cout << enfant1Dupont->afficheFrerSoeurs().toStdString() << endl;
 
     cout << couple2->toString().toStdString() << endl;
 

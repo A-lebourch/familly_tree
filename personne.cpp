@@ -67,3 +67,13 @@ QList<Personne*> Personne::getFreresSoeurs() const
 {
     return m_freresSoeurs;
 }
+
+QString Personne::afficheFrerSoeurs() const
+{
+    QString result = "Frères/soeurs de " + toString() + " : \n";
+    QList<Personne*> freresSoeurs = getFreresSoeurs();
+    for (Personne* frereSoeur : freresSoeurs) {
+        result += "  - " + frereSoeur->toString() +"\n";
+    }
+    return result;
+}
