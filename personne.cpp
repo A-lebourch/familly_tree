@@ -1,7 +1,7 @@
 #include "personne.h"
 
 Personne::Personne(QString nom, QString prenom, Sexe sexe, QString birth, Personne *pere, Personne *mere, QString death) :
-    m_prenom(prenom), m_nom(nom), m_sexe(sexe), birth(birth), death(death), m_pere(pere), m_mere(mere), m_conjoint(nullptr)
+    m_prenom(prenom), m_nom(nom), m_sexe(sexe), birth(birth), death(death), m_pere(pere), m_mere(mere)
 {
 
 }
@@ -15,10 +15,6 @@ QString Personne::toString() const
 void Personne::ajouterEnfant(Personne *enfant)
 {
     m_enfants.append(enfant);
-    enfant->setPere(this);
-    if (m_conjoint != nullptr) {
-        enfant->setMere(m_conjoint);
-    }
 }
 
 QList<Personne*> Personne::getEnfants() const
@@ -46,12 +42,16 @@ Personne* Personne::getMere() const
     return m_mere;
 }
 
-void Personne::setConjoint(Personne *conjoint)
+void Personne::ajouterFrereSoeur(Personne* frereSoeur)
 {
-    m_conjoint = conjoint;
+    if (m_pere == frereSoeur->getPere() && m_mere == frereSoeur->getMere())
+    {
+        m_freresSoeurs.append(frereSoeur);
+        frereSoeur->m_freresSoeurs.append(this);
+    }
 }
 
-Personne* Personne::getConjoint() const
+QList<Personne*> Personne::getFreresSoeurs() const
 {
-    return m_conjoint;
+    return m_freresSoeurs;
 }

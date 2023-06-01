@@ -16,8 +16,8 @@ public:
     Personne* getPere() const;
     void setMere(Personne *mere);
     Personne* getMere() const;
-    void setConjoint(Personne *conjoint);
-    Personne* getConjoint() const;
+    void ajouterFrereSoeur(Personne* frereSoeur);
+    QList<Personne*> getFreresSoeurs() const;
 
 private:
     QString m_prenom;
@@ -26,9 +26,9 @@ private:
     QString birth;
     QString death;
     QList<Personne*> m_enfants;
+    QList<Personne*> m_freresSoeurs;
     Personne *m_pere;
     Personne *m_mere;
-    Personne *m_conjoint;
 };
 
 #endif

@@ -8,6 +8,8 @@ Couple::Couple(Personne* homme, Personne* femme) : m_homme(homme), m_femme(femme
 void Couple::ajouterEnfant(Personne* enfant)
 {
     m_enfants.append(enfant);
+    enfant->setPere(m_homme);
+    enfant->setMere(m_femme);
 }
 
 QList<Personne*> Couple::getEnfants() const
