@@ -32,5 +32,10 @@ QString Couple::toString() const
     QString result = "Couple :\n";
     result += "  Membre 1 : " + m_homme->toString() + "\n";
     result += "  Membre 2 : " + m_femme->toString() + "\n";
+
+    result +="Enfants du couple : \n" ;
+    for (Personne* enfant : m_enfants) {
+        result +="  - " + enfant->toString() + "\n";
+    }
     return result;
 }

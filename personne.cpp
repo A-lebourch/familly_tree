@@ -42,6 +42,18 @@ Personne* Personne::getMere() const
     return m_mere;
 }
 
+QString Personne::Genealogie() const
+{
+    QString result = "généalogie de " + toString() + " : \n";
+    result += "- Mère :" + m_mere->toString() + "\n";
+    result += "- Père :" + m_pere->toString() + "\n";
+    result += "-- Grandpère Paternel : " + m_pere->getPere()->toString() + "\n";
+    result += "-- Grandmère paternel : " + m_pere->getMere()->toString() + "\n";
+    result += "-- Grandpère maternel : " + m_mere->getPere()->toString() + "\n";
+    result += "-- Grandmère maternel : " + m_mere->getMere()->toString() + "\n";
+    return result;
+}
+
 void Personne::ajouterFrereSoeur(Personne* frereSoeur)
 {
     if (m_pere == frereSoeur->getPere() && m_mere == frereSoeur->getMere())

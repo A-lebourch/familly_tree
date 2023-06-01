@@ -18,6 +18,7 @@ public:
     Personne* getMere() const;
     void ajouterFrereSoeur(Personne* frereSoeur);
     QList<Personne*> getFreresSoeurs() const;
+    QString Genealogie()const;
 
 private:
     QString m_prenom;
