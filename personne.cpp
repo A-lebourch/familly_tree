@@ -57,7 +57,7 @@ QString Personne::Genealogie() const
 
 void Personne::ajouterFrereSoeur(Personne* frereSoeur)
 {
-    if (m_pere == frereSoeur->getPere() && m_mere == frereSoeur->getMere())
+    if (m_pere == frereSoeur->getPere() && m_mere == frereSoeur->getMere()) //vérification que les deux Personne ont les même parents
     {
         m_freresSoeurs.append(frereSoeur);
         frereSoeur->m_freresSoeurs.append(this);
