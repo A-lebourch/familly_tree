@@ -1,5 +1,6 @@
 #include "personne.h"
 
+
 Personne::Personne(QString nom, QString prenom, Sexe sexe, QString birth, Personne *pere, Personne *mere, QString death) :
     m_prenom(prenom), m_nom(nom), m_sexe(sexe), birth(birth), death(death), m_pere(pere), m_mere(mere)
 {
